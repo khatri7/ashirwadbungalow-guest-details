@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <meta name="description" content="Details of Guests who will be visiting the property.">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="./index.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/8a23c3c983.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./index.js"></script>
+    <link rel="icon" 
+      type="image/png" 
+      href="./assets/favicon.png">
+    <title>Guest Details</title>
+  </head>
+  <body>
+    <div id="loader" class="center"></div>
+    <a style="text-decoration: none;" href="http://ashirwadbungalowpanchgani.com/"><h1 class="page-title">ASHIRWAD BUNGALOW</h1></a>
+    <h1 class="page-sub-title">GUEST DETAILS</h1>
+    <hr />
+    <div id="guest-form-div">
+      <form name="guest-form" id="guest-form">
+        <h2 class="form-heading">Personal Details</h2>
+        <label for="fname">Full Name </label>
+        <input type="text" id="fname" name="Name of Primary Guest" />
+        <br />
+        <label for="tel">Contact Number </label>
+        <div style="display: flex; margin-bottom: 10px">
+          <span class="country-code">+91-</span
+          ><input
+            type="tel"
+            name="Contact Number"
+            minlength="10"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            maxlength="10"
+            id="tel"
+            style="width: 100%; margin-left: 5px"
+          />
+        </div>
+        <br />
+        <label for="email">E-mail Id </label>
+        <input type="email" id="email" name="E-mail" class="text-input" />
+        <br />
+        <label for="primary-dob">Date of Birth </label>
+        <input
+          id="primary-dob"
+          name="DOB"
+          type="date"
+          onkeydown="return false"
+        />
+        <div class="nationality-selector-div">
+          Nationality <br />
+          <input
+            type="radio"
+            name="nationality-selector"
+            value="Indian"
+            id="radio-indian"
+          /><label for="radio-indian"> Indian</label><br />
+          <input
+            type="radio"
+            name="nationality-selector"
+            value="Other"
+            id="radio-other"
+          /><label for="radio-other"> Other</label><br />
+        </div>
+        <div class="id-input" id="nationality-inputs"></div>
+        <hr />
+        <h2 class="form-heading">Travel Details</h2>
+        <label for="arrival-date">Check-In Date </label>
+        <input
+          id="arrival-date"
+          name="Check-In Date"
+          type="date"
+          onkeydown="return false"
+        />
+        <br />
+        <label for="departure-date">Check-Out Date </label>
+        <input
+          id="departure-date"
+          name="Check-Out Date"
+          type="date"
+          onkeydown="return false"
+        />
+        <br />
+        <label for="amount">Amount Paid </label>
+        <div style="display: flex; margin-bottom: 10px">
+          <span class="rupee-symbol">&#8377;</span>
+          <input
+            type="number"
+            id="amount"
+            name="Amount Paid"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            maxlength="5"
+            style="width: 100%; margin-left: 5px"
+          /><br />
+        </div>
+        <label for="receipt-file">Please upload the payment receipt </label>
+        <label class="custom-file-upload">
+          <input
+            type="file"
+            id="receipt-file"
+            accept="image/*, application/pdf"
+          />
+          <i class="fa fa-cloud-upload"></i> Click Here to Upload Receipt
+        </label>
+        <span id="receipt-file-name" class="file-name"></span>
+        <br />
+        <label for="traveling-from-textarea">Traveling From </label>
+        <textarea id="traveling-from-textarea"></textarea>
+        <br />
+        <label for="traveling-from-pincode">PIN Code </label>
+        <input
+          type="number"
+          id="traveling-from-pincode"
+          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          maxlength="6"
+        />
+        <hr />
+        <h2 class="form-heading">Additional Guests Details</h2>
+        <div id="add-guest"></div>
+        <div class="guest-modify-buttons">
+          <div id="add-guest-button">
+            <button type="button" class="guest-buttons" onclick="addGuest()">
+              <i class="fas fa-user-plus"></i> Add Guest</button
+            ><br />
+          </div>
+          <div id="remove-guest-button"></div>
+        </div>
+        <br />
+        <div class="tnc">
+          <input type="checkbox" id="declaration" />
+          <label for="declaration"
+            >I, <b><span id="declaration-name" class="tnc"></span></b>hereby
+            declare that
+          </label>
+          <p>1. All group members have installed the Aarogya Setu app.</p>
+          <p>
+            2. No group member is below the age of 10, or above the age of 65
+            years.
+          </p>
+          <p>
+            3. None of the group members have tested Covid-19 positive in the
+            last two months.
+          </p>
+          <p>
+            4. None of the group members are suffering from any cough, fever, or
+            any other respiratory distress symptoms. If any person develops any
+            of the symptoms, we will contact the bungalow owners as well as the
+            local health authorities immediately.
+          </p>
+          <p>
+            5. None of the group members have traveled to any other
+            city/district in the past 7 days or are under Home Quarantine.
+          </p>
+          <p>
+            6. None of the group members reside in Covid-19 containment zones.
+          </p>
+          <p>
+            7. All details provided above are true to my knowledge and can be
+            shared with the concerned authorities in case of an emergency. I
+            understand that providing incorrect information would make me liable
+            to penal action.
+          </p>
+        </div>
+        <button type="submit" id="submit-form-button" disabled>SUBMIT</button>
+        <div id="warnings" class="warnings"></div>
+      </form>
+    </div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1 class="page-sub-title">DETAILS PROVIDED</h1>
+        <div class="content-modal" id="content-modal">
+          <div class="modal-info">
+            <b>Full Name: </b><span id="modal-name"></span><br />
+            <b>Contact Number: </b><span id="modal-contact"></span><br />
+            <b>E-Mail: </b><span id="modal-email"></span><br />
+            <b>Date of Birth: </b><span id="modal-dob"></span><br />
+            <b>Nationality: </b><span id="modal-nationality"></span><br />
+            <b id="id-key"></b><span id="modal-id"></span><br />
+            <b>Check-In Date: </b><span id="modal-checkin"></span><br />
+            <b>Check-Out Date: </b><span id="modal-checkout"></span><br />
+            <b>Amount Paid: </b><span id="modal-amount"></span><br />
+            <b>Total Number of Guests: </b><span id="modal-guests"></span>
+          </div>
+          <div
+            id="modal-proceed"
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              margin-top: 20px;
+            "
+          >
+            <button
+              id="proceed"
+              class="submit-button"
+              style="margin-bottom: 0px"
+            >
+              PROCEED
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+        <p class="page-footer-text">Designed and Developed by Abhishek Khatri</p>
+        <p class="page-footer-social">
+            <a href="https://www.instagram.com/khatri.7/" target="_blank" class="social-link"><i class="fab fa-instagram footer-social-icon"></i></a>
+            <a href="https://www.linkedin.com/in/khatri7/" target="_blank" class="social-link"><i class="fab fa-linkedin footer-social-icon"></i></a>
+        </p>
+    </footer>
+  </body>
+</html>
