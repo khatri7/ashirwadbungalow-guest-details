@@ -1,6 +1,12 @@
-# ashirwadbungalow-guest-details
-Save Form submission data to Google Sheets with media being uploaded to Google Drive and Url being saved in Sheets
+# Ashirwad Bungalow Guest Details
 
-https://developers.google.com/apps-script/guides/sheets
-https://developers.google.com/apps-script/guides/web
+Form with client-side validations using vanilla JS. The data submitted to this form gets stored in a Google Sheet and the media gets stored in a Google Drive directory with the URL to the specific media also recorded in the sheet.
+
+## Motivation
+
+## How to run
+
+## References
+https://developers.google.com/apps-script/guides/sheets  
+https://developers.google.com/apps-script/guides/web  
 https://developers.google.com/apps-script/reference/drive/drive-app
